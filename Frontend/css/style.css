@@ -53,7 +53,22 @@
 
 /*//////////////////////////CATEGORIAS//////////////////////////////////////*/
 
-.categories {}
+.categories {
+    width: 40%;
+    height: 20px;
+    padding-top: 13%;
+    padding-left: 1%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.categories span {
+    padding-inline: 15px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: small;
+}
 
 
 /*//////////////////////////CATEGORIAS//////////////////////////////////////*/
