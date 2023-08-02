@@ -1,18 +1,15 @@
-import expresss from "express";
-import mongoose from "mongoose";
+import express from "express";
+import connectDataBase from "./src/database/db.js";
+import musicRoute from "./src/routes/music.route.js";
 
-const uri = "mongodb://localhost:27017/Music_Box";
-const app = expresss;
+const app = express();
 
-mongoose
-    .connect(url, {})
-    .then((result) => console.log("Connected"))
-    .catch((err) => console.log(err));
+connectDataBase();
 
-app.get("/", (req, res) => {
-    res.send("so far so good");
+//Routes
+app.use(express.json());
+app.use("/music", musicRoute);
+
+app.listen(3000, () => {
+    console.log("Server started on port 3000");
 });
-
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => `Server running on port ${port} 🔥`);
