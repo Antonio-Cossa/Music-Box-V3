@@ -1,6 +1,8 @@
 import User from "../models/User.js";
 
-//Post service
+//create service
 const create = (body) => User.create(body);
+//find services
+const findAllservice = () => User.find();
 
-export default { create };
+export default { create, findAllservice };

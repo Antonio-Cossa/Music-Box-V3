@@ -1,5 +1,5 @@
 import musicService from "../services/music.service.js";
-
+//Add musics
 const create = async(req, res) => {
     try {
         const { src, titulo, artista, capa } = req.body;
@@ -21,5 +21,21 @@ const create = async(req, res) => {
         res.status(500).send({ message: error.message });
     }
 };
+//Get all musics
+const getAll = async(req, res) => {
+    try {
+        const music = await musicService.getAllService();
 
-export default { create };
+        if (music.length === 0) {
+            return res.status(400).send({ message: "No Musics On DB" })
+        };
+
+        res.send(music);
+
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+    }
+
+};
+//Get music by id
+export default { create, getAll };

@@ -29,6 +29,19 @@ const create = async(req, res) => {
         res.status(500).send({ message: err.message });
     }
 };
+//Encontrar usuario por id
+
+const findAll = async(req, res) => {
+    try {
+        const users = await userService.findAllservice();
+        if (users.length === 0) {
+            return res.status(400).send({ message: "No users on DB" });
+        }
+        res.send(users);
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+};
 
 
-export default { create };
+export default { create, findAll };
