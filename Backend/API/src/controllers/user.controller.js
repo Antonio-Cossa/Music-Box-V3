@@ -29,7 +29,7 @@ const create = async(req, res) => {
         res.status(500).send({ message: err.message });
     }
 };
-//Encontrar usuario por id
+//pegar todos usuarios
 
 const findAll = async(req, res) => {
     try {
@@ -43,5 +43,14 @@ const findAll = async(req, res) => {
     }
 };
 
-
-export default { create, findAll };
+//Encontrar po id
+const getById = async(req, res) => {
+    try {
+        const id = req.params.id;
+        const user = await userService.getById(id);
+        res.send(user);
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+    }
+};
+export default { create, findAll, getById };

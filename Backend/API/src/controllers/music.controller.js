@@ -38,4 +38,15 @@ const getAll = async(req, res) => {
 
 };
 //Get music by id
-export default { create, getAll };
+const getById = async(req, res) => {
+    try {
+        const id = req.params.id;
+        const music = await musicService.getById(id);
+        res.send(music);
+
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+
+    }
+};
+export default { create, getAll, getById };
