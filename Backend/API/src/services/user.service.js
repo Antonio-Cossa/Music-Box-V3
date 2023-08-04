@@ -6,5 +6,7 @@ const create = (body) => User.create(body);
 const findAllservice = () => User.find();
 //find by id
 const getById = (id) => User.findById(id);
+//delete user using id
+const deleteUser = (id) => User.findByIdAndDelete(id);
 
-export default { create, findAllservice, getById };
+export default { create, findAllservice, getById, deleteUser };

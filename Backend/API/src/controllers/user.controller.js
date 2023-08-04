@@ -53,4 +53,18 @@ const getById = async(req, res) => {
         res.status(500).send({ message: error.message });
     }
 };
-export default { create, findAll, getById };
+
+//Eliminar Usuario
+const deleteUser = async(req, res) => {
+    try {
+        const id = req.params.id;
+        const duser = await userService.deleteUser(id);
+        res.send({ message: "Usuario Eliminado" });
+
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+
+    }
+};
+
+export default { create, findAll, getById, deleteUser };

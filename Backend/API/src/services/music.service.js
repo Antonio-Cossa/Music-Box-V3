@@ -6,4 +6,6 @@ const create = (body) => Music.create(body);
 const getAllService = () => Music.find();
 //get by id service
 const getById = (id) => Music.findById(id);
-export default { create, getAllService, getById };
+//Delete music by id
+const deleteMusic = (id) => Music.findByIdAndDelete(id);
+export default { create, getAllService, getById, deleteMusic };
