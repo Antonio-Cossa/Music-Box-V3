@@ -53,7 +53,7 @@ const getById = async(req, res) => {
 //Delete music by id
 const deleteMusic = async(req, res) => {
     try {
-        const dmusic = await musicService.deleteMusic(req.params.id);
+        await musicService.deleteMusic(req.params.id);
         res.send({ message: "Musica Eliminada" });
     } catch (error) {
         res.status(500).send({ message: error.message });
